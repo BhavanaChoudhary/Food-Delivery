@@ -1,0 +1,46 @@
+.food-display {
+    padding: 20px;
+}
+
+.food-display-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.food-item {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 200px; /* Set a fixed width for food items */
+}
+
+.food-item-img-container {
+    height: 150px; /* Set a fixed height for the image container */
+    overflow: hidden;
+}
+
+.food-item-image {
+    width: 100%;
+    height: auto;
+}
+
+.food-item-info {
+    padding: 10px;
+}
+
+.food-item-name-rating {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.food-item-desc {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.food-item-price {
+    font-weight: bold;
+    color: #333;
+}
