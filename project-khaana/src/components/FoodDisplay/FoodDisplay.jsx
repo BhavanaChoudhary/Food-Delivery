@@ -35,7 +35,7 @@ import food_32 from '../../assets/food_32.png';
 import './FoodDisplay.css';
 import FoodItem from '../FoodItem/FoodItem';
 
-const FoodDisplay = () => {
+const FoodDisplay = ({category}) => {
     const food_list = [
         { _id: "1", name: "Greek salad", image: food_1, price: 12, description: "Healthy and fresh salad.", category: "Salad" },
         { _id: "2", name: "Veg salad", image: food_2, price: 18, description: "A delicious mix of vegetables.", category: "Salad" },
@@ -45,10 +45,10 @@ const FoodDisplay = () => {
         { _id: "6", name: "Peri Peri Rolls", image: food_6, price: 12, description: "Spicy and flavorful rolls.", category: "Rolls" },
         { _id: "7", name: "Chicken Rolls", image: food_7, price: 20, description: "Juicy chicken rolls.", category: "Rolls" },
         { _id: "8", name: "Veg Rolls", image: food_8, price: 15, description: "Healthy vegetarian rolls.", category: "Rolls" },
-        { _id: "9", name: "Ripple Ice Cream", image: food_9, price: 14, description: "Smooth and creamy dessert.", category: "Desserts" },
-        { _id: "10", name: "Fruit Ice Cream", image: food_10, price: 22, description: "Fresh fruit flavor.", category: "Desserts" },
-        { _id: "11", name: "Jar Ice Cream", image: food_11, price: 10, description: "Ice cream in a jar.", category: "Desserts" },
-        { _id: "12", name: "Vanilla Ice Cream", image: food_12, price: 12, description: "Classic vanilla taste.", category: "Desserts" },
+        { _id: "9", name: "Ripple Ice Cream", image: food_9, price: 14, description: "Smooth and creamy dessert.", category: "Deserts" },
+        { _id: "10", name: "Fruit Ice Cream", image: food_10, price: 22, description: "Fresh fruit flavor.", category: "Deserts" },
+        { _id: "11", name: "Jar Ice Cream", image: food_11, price: 10, description: "Ice cream in a jar.", category: "Deserts" },
+        { _id: "12", name: "Vanilla Ice Cream", image: food_12, price: 12, description: "Classic vanilla taste.", category: "Deserts" },
         { _id: "13", name: "Chicken Sandwich", image: food_13, price: 12, description: "Crispy chicken sandwich.", category: "Sandwich" },
         { _id: "14", name: "Vegan Sandwich", image: food_14, price: 18, description: "A plant-based delight.", category: "Sandwich" },
         { _id: "15", name: "Grilled Sandwich", image: food_15, price: 16, description: "Perfectly grilled sandwich.", category: "Sandwich" },
@@ -72,20 +72,27 @@ const FoodDisplay = () => {
     ];
 
     return (
-        <div className='food-display'>
-            <h2>Top dishes near you!</h2>
-            <div className="food-display-list">
-                {food_list.map((item) => ( 
-                    <FoodItem 
-                        key={item._id} 
-                        id={item._id} 
-                        name={item.name} 
-                        description={item.description}  
-                        price={item.price} 
-                        image={item.image} 
-                    />
-                ))}
-            </div>
+        <div className='food-display' id='food-display'>
+        <h2>Top dishes near you</h2>
+        <div className="food-display-list">
+            {food_list.map((item, index) => {
+                console.log(category, item.category); // Debugging output
+
+                if (category === "All" || category === item.category) {
+                    return (
+                        <FoodItem 
+                            key={index} 
+                            id={item._id} 
+                            name={item.name} 
+                            description={item.description}  
+                            price={item.price} 
+                            image={item.image} 
+                        />
+                    );
+                }
+                return null; // Ensures undefined isn't returned inside .map()
+            })}
+        </div>
         </div>
     );
 };

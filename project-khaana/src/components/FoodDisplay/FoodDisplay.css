@@ -9,7 +9,7 @@
 }
 
 .food-item {
-    border: 1px solid #ccc;
+    border: 1px solid #e3e2e2;
     border-radius: 8px;
     overflow: hidden;
     width: 200px; /* Set a fixed width for food items */
