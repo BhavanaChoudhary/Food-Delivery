@@ -5,19 +5,22 @@
 .food-display-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 15px;
+    justify-content: center;
+    align-items: stretch; /* Ensures uniform height */
 }
 
 .food-item {
     border: 1px solid #e3e2e2;
     border-radius: 8px;
     overflow: hidden;
-    width: 200px; /* Set a fixed width for food items */
+   /* Set a fixed width for food items */
 }
 
 .food-item-img-container {
     height: 150px; /* Set a fixed height for the image container */
     overflow: hidden;
+   
 }
 
 .food-item-image {
@@ -43,4 +46,31 @@
 .food-item-price {
     font-weight: bold;
     color: #333;
+}
+@media (max-width: 1050px) {
+    .food-item {
+        margin: 0;
+        min-width: 100px; 
+    }
+}
+@media (max-width: 1050px) {
+    .food-item {
+        width: 180px; 
+    }
+}
+
+@media (max-width: 750px) {
+    .food-item {
+        width: 160px;
+    }
+}
+
+
+@media (max-width: 650px) {
+    .food-item {
+        margin: 0;
+        width: 300px;
+        margin-left: 0px;
+        height: auto;
+    }
 }
